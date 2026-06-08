@@ -662,6 +662,10 @@ function FaqSection() {
     { q: t("faq.q2"), a: t("faq.a2") },
     { q: t("faq.q3"), a: t("faq.a3") },
     { q: t("faq.q4"), a: t("faq.a4") },
+    { q: t("faq.q5"), a: t("faq.a5") },
+    { q: t("faq.q6"), a: t("faq.a6") },
+    { q: t("faq.q7"), a: t("faq.a7") },
+    { q: t("faq.q8"), a: t("faq.a8") },
   ];
   return (
     <section className="px-6 py-24">
@@ -686,22 +690,30 @@ function CtaBanner() {
   const { t } = useT();
   return (
     <section className="mx-auto max-w-7xl px-6 pb-24">
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-brand-primary px-8 py-20 text-center text-white md:px-16">
-        <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-white/5" />
-        <div className="pointer-events-none absolute -bottom-20 -left-20 size-80 rounded-full bg-brand-accent/15" />
-        <div className="relative mx-auto max-w-2xl">
-          <h2 className="font-display text-4xl font-bold md:text-5xl">{t("cta.banner.heading")}</h2>
-          <p className="mt-6 text-lg text-white/80">{t("cta.banner.sub")}</p>
+      <div className="relative overflow-hidden rounded-[2.5rem] surface-dark px-8 py-20 md:px-16">
+        <img
+          src={facilityImg}
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute inset-0 size-full object-cover opacity-15"
+        />
+        <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-brand-citron/15" />
+        <div className="pointer-events-none absolute -bottom-20 -left-20 size-80 rounded-full bg-brand-sky/15" />
+        <div className="relative mx-auto max-w-2xl text-center">
+          <h2 className="font-display text-4xl font-bold tracking-display md:text-5xl">
+            {t("cta.banner.heading")}
+          </h2>
+          <p className="mt-6 text-lg text-white/85">{t("cta.banner.sub")}</p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
               to="/schedule"
-              className="rounded-full bg-brand-accent px-8 py-4 font-bold text-brand-dark transition-all hover:scale-105 hover:bg-white"
+              className="rounded-full bg-brand-citron px-8 py-4 font-bold text-brand-dark transition-all hover:scale-105 hover:bg-white"
             >
               {t("cta.scheduleNow")}
             </Link>
             <Link
               to="/contact"
-              className="rounded-full border border-white/20 px-8 py-4 font-bold text-white transition-all hover:bg-white/10"
+              className="rounded-full border border-white/25 px-8 py-4 font-bold text-white transition-all hover:bg-white/10"
             >
               {t("cta.contactSales")}
             </Link>
