@@ -1,45 +1,81 @@
-## EcoCycle Bangladesh — Build Plan
 
-A frontend-only marketing site (no backend in this pass). Visual direction locked to the selected "Industrial clean" prototype.
+## EcoCycle Bangladesh — Design & Content Polish
 
-### Design tokens (ported verbatim into `src/styles.css`)
-- Colors: `--brand-primary #065f46`, `--brand-accent #a3e635`, `--brand-dark #0f172a`, surfaces `slate-50` / `white`
-- Fonts: Space Grotesk (display) + Inter (body), loaded via `<link>` in `__root.tsx`
-- Soft shadows, rounded-2xl/3xl, pill CTAs, sticky blurred nav
+A focused refinement pass across the marketing site. No new pages, no backend — visual system, copy tone, and real imagery.
 
-### Routes (TanStack Start, file-based under `src/routes/`)
-1. `index.tsx` — Landing: hero, impact stats (animated counters), how it works (4 steps), services grid, benefits, testimonials, FAQ accordion, newsletter, CTA banner
-2. `schedule.tsx` — Multi-step pickup form (name, phone, email, address, device type, quantity, date, notes) with progress indicator + success screen + "Send via WhatsApp" fallback. Frontend-only validation with zod; submit just shows confirmation
-3. `services.tsx` — 6 detailed service cards (Residential, Office, School drives, Data Wiping, Hard Drive Destruction, Refurbishment) each with description / benefits / process / CTA
-4. `impact.tsx` — Metrics dashboard (collected, refurbished, materials recovered, CO₂ reduced) + company timeline + recharts bar/line
-5. `corporate.tsx` — Corporate value props, compliance/certificates, CSR partnerships, bulk inquiry form
-6. `about.tsx` — Mission, story, vision, team grid, sustainability commitment
-7. `blog.tsx` — Static post grid with search + category filter (mock content)
-8. `contact.tsx` — Contact form, phone/email/address, embedded map iframe, social links
+### 1. Design system upgrades (`src/styles.css`)
+- **Expanded palette** (used sparingly as accents, not everywhere):
+  - Keep emerald `#065f46` as primary
+  - Add `--brand-moss #3f6f4f` (secondary text accents), `--brand-citron #d9f99d` (soft surfaces), `--brand-clay #c2655a` (warm accent for warnings/CTAs), `--brand-sky #0ea5e9` (link/info), `--brand-sand #f5efe6` (alt section background)
+  - Gradient tokens: `--gradient-hero`, `--gradient-card`, `--gradient-stat`
+  - Shadow tokens: `--shadow-soft`, `--shadow-lifted`, `--shadow-glow-primary`
+- **Typography rhythm**: tighter display tracking (-0.03em on h1/h2), better fluid clamp() sizing for hero, drop-cap utility for editorial blocks
+- **Section backgrounds**: alternate `bg-background`, `bg-brand-sand/40`, `bg-brand-primary` (dark band) for visual cadence instead of all-white
+- **Surface variants**: `.surface-elevated`, `.surface-tinted`, `.surface-dark` utilities so cards aren't all identical
+- **Dark mode**: re-tune so accent colors remain legible
 
-### Shared components (`src/components/`)
-- `SiteHeader` (sticky nav, links to all pages, lang toggle, dark mode toggle, Schedule CTA, mobile sheet menu)
-- `SiteFooter`
-- `WhatsAppButton` (floating, all pages)
-- `NewsletterForm`, `FaqAccordion`, `Stat` (count-up using framer-motion), `SectionHeading`
-- `LanguageProvider` + `useT()` — simple dictionary-based i18n in React context, persisted to localStorage. All copy keyed; EN + বাংলা strings shipped together
-- `ThemeProvider` — class-based dark mode toggle (already supported in `styles.css`)
+### 2. Site header
+- Remove rotate-on-hover from the logo mark (no transform, no group hover); keep a subtle color transition on the wordmark only
+- Add a thin top accent bar (1px gradient) for premium feel
 
-### Animations
-- framer-motion: fade-up on scroll for sections, hover lift on service cards, count-up stats, gold underline draw on nav links
+### 3. Real imagery
+Generate AI images with `imagegen` (saved to `src/assets/`) and import them:
+- `hero-collection.jpg` — Dhaka rooftop scene, technician with a tablet receiving e-waste from a family, warm golden hour, photographic
+- `hero-side-circuit.jpg` — macro shot of a green PCB with new plants growing through it (metaphor)
+- `service-residential.jpg`, `service-office.jpg`, `service-school.jpg` — contextual photos
+- `impact-recycling.jpg` — refurbishment lab, workers in lime-green aprons
+- `about-team.jpg` — team gathered in warehouse
+- `cta-banner.jpg` — wide landscape of recycled materials sorted into colorful bins
+- Use `srcset`/proper alt text; lazy-load below-the-fold
 
-### SEO & a11y
-- Per-route `head()` with unique title/description/og tags
-- One `<main>` per page, semantic headings, alt text, aria-labels on icon buttons, `h-dvh` where applicable
-- robots.txt + sitemap.xml updated with all 8 routes; canonical relative paths
+### 4. Hero redesign (asymmetric, more interesting)
+- Left: oversized display headline with a single highlighted phrase (citron underline brushstroke), supporting sub-copy, two CTAs, micro trust row (badges)
+- Right: layered composition — main hero photo in a rounded-3xl frame, floating stat card (impact this month), small certification chip, decorative dotted grid + blurred accent blobs
+- Subtle parallax on scroll for the floating card
 
-### Out of scope (deferred)
-- No Lovable Cloud / DB / auth / admin / user accounts / real notifications (you chose "Full marketing site only")
-- WhatsApp button uses a placeholder number; contact details use placeholders (you can swap in real ones later)
-- Blog posts are static mock content (no CMS)
+### 5. Copy rewrite (EN + BN dictionaries in `src/lib/i18n.tsx`)
+Replace marketing-speak with natural, conversational lines. Examples:
+- Hero headline: "Your old electronics deserve a second life." (instead of generic "Recycle responsibly")
+- Sub: "We pick up the laptop in your drawer, the phone in your kitchen counter, and the tangle of cables under your desk — then make sure every part finds the right home."
+- How it works steps in plain language ("Tell us what you have", "We come to your door", "You get a receipt", "Materials are recovered safely")
+- Add a short "Why this matters" paragraph in Bangla-friendly tone with a real local statistic
+- Testimonials read like real people, not press releases
+- FAQ expanded from 4 → 8 questions covering: data wiping certificates, what we accept/don't accept, free vs paid pickups, corporate volumes, what happens to materials, tax/CSR receipts, scheduling windows, areas covered
 
-### Technical notes
-- Stack is TanStack Start (the project template), not Next.js — same React 19 + TS + Tailwind v4 + shadcn + framer-motion, just file-based routing in `src/routes/`
-- Tailwind v4 tokens defined in `src/styles.css` (`@theme`), no `tailwind.config.js`
-- Install: `framer-motion`, `recharts`, `zod`, `react-hook-form`, `@hookform/resolvers`, `date-fns`
-- All forms use react-hook-form + zod with proper validation messages
+### 6. More info / new sections on landing
+- **What we accept** strip: 10 device-type chips with icons (laptops, phones, TVs, ACs, batteries, cables, printers, monitors, kitchen appliances, IT gear) + a "Not sure? Ask us" link
+- **Coverage map preview**: simple stylized SVG of Bangladesh with collection-point dots and a sentence about districts served
+- **Press / partners** marquee row with logo placeholders (greyscale on hover → color)
+- **Process timeline** (replacing or augmenting "How it works") with 5 steps and connector line
+- **Materials recovered breakdown** mini-chart on landing (donut: copper / aluminum / plastics / glass / rare metals)
+- **Founder note** card with handwritten-style signature
+
+### 7. Per-page small enhancements
+- **Services**: each service card gets a real photo header, a "Best for" tag, and an inline mini-FAQ
+- **Impact**: add a "Where the materials go" Sankey-style stacked bar, plus a quote pull-out
+- **About**: hero photo, milestone timeline visual with year markers, replace initials avatars with real team photos
+- **Corporate**: add a logos strip and a 3-tier service comparison table
+- **Contact**: prettier card layout with icons, business hours, and a "fastest reply via WhatsApp" hint
+- **Blog**: cards get real cover images, reading time, author chip
+
+### 8. Micro-interactions (subtle, not overdone)
+- Section reveals: stagger fade-up
+- Stat counters: keep
+- CTA buttons: soft shadow lift + slight scale on hover (already present, refine timing)
+- Image frames: very subtle tilt on hover (1.5deg)
+- Remove: logo spin, any over-eager bouncing
+
+### Out of scope
+- No new routes, no backend, no CMS
+- No video, no 3D, no heavy libraries beyond what's installed
+- WhatsApp/phone numbers stay as placeholders
+
+### Files touched
+- `src/styles.css` (tokens, utilities)
+- `src/lib/i18n.tsx` (copy rewrite, new keys)
+- `src/components/site-header.tsx` (remove logo hover)
+- `src/components/section-heading.tsx` (subtle refinements)
+- New: `src/components/accepted-items.tsx`, `src/components/partners-marquee.tsx`, `src/components/coverage-map.tsx`, `src/components/founder-note.tsx`, `src/components/materials-donut.tsx`
+- `src/routes/index.tsx` (hero rebuild, new sections)
+- `src/routes/services.tsx`, `impact.tsx`, `about.tsx`, `corporate.tsx`, `contact.tsx`, `blog.tsx` (imagery + copy)
+- New images in `src/assets/` (8–10 generated photos)

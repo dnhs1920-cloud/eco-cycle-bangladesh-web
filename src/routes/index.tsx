@@ -2,16 +2,25 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
+  BatteryCharging,
+  Cable,
   Calendar,
   CheckCircle2,
   Cpu,
   Factory,
+  Laptop,
   Leaf,
+  MapPin,
+  Monitor,
   PackageCheck,
+  Printer,
   Recycle,
+  Refrigerator,
   Shield,
   ShieldCheck,
+  Smartphone,
   Sparkles,
+  Tv,
   Truck,
   Wallet,
 } from "lucide-react";
@@ -26,6 +35,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useT } from "@/lib/i18n";
+import heroPickup from "@/assets/hero-pickup.jpg";
+import circuitMoss from "@/assets/circuit-moss.jpg";
+import facilityImg from "@/assets/facility.jpg";
+import itemsFlatlay from "@/assets/items-flatlay.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,13 +63,15 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const { t } = useT();
   return (
     <PageShell>
       <Hero />
+      <Partners />
       <Stats />
+      <AcceptedItems />
       <HowItWorks />
       <Services />
+      <FacilityFeature />
       <Benefits />
       <Testimonials />
       <FaqSection />
@@ -68,43 +83,44 @@ function Index() {
       <CtaBanner />
     </PageShell>
   );
-  void t;
 }
 
 function Hero() {
   const { t } = useT();
   return (
-    <section className="relative overflow-hidden px-6 pb-24 pt-16 lg:pt-24">
-      <div className="pointer-events-none absolute -top-32 right-0 -z-10 size-[600px] rounded-full bg-brand-accent/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-32 -left-32 -z-10 size-[500px] rounded-full bg-brand-primary/10 blur-3xl" />
+    <section className="relative overflow-hidden px-6 pb-24 pt-12 lg:pt-20">
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-70"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 15% 10%, color-mix(in oklab, var(--brand-citron) 55%, transparent) 0%, transparent 70%), radial-gradient(50% 50% at 90% 90%, color-mix(in oklab, var(--brand-sky) 18%, transparent) 0%, transparent 70%)",
+        }}
+      />
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-brand-accent/20 px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-primary">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand-primary opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-brand-primary" />
-              </span>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-primary/15 bg-white/80 px-3 py-1.5 text-xs font-semibold tracking-wide text-brand-primary backdrop-blur">
+              <MapPin className="size-3.5" />
               {t("hero.badge")}
             </div>
-            <h1 className="mb-6 font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
+            <h1 className="mb-6 font-display text-5xl font-bold leading-[1.02] tracking-display md:text-[5.5rem]">
               {t("hero.title.a")}{" "}
-              <span className="relative inline-block text-brand-primary">
-                {t("hero.title.b")}
+              <span className="relative inline-block">
+                <span className="relative z-10 text-brand-primary">{t("hero.title.b")}</span>
                 <svg
                   aria-hidden
-                  viewBox="0 0 200 12"
-                  className="absolute -bottom-2 left-0 h-3 w-full text-brand-accent/60"
+                  viewBox="0 0 200 14"
+                  className="absolute -bottom-1 left-0 h-3 w-full text-brand-citron"
                   preserveAspectRatio="none"
                 >
                   <path
-                    d="M2 8 Q 50 0 100 6 T 198 5"
+                    d="M2 10 Q 50 2 100 8 T 198 6"
                     stroke="currentColor"
-                    strokeWidth="4"
+                    strokeWidth="6"
                     fill="none"
                     strokeLinecap="round"
                   />
@@ -112,73 +128,58 @@ function Hero() {
               </span>
               .
             </h1>
-            <p className="mb-10 max-w-lg text-lg leading-relaxed text-muted-foreground">
+            <p className="mb-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
               {t("hero.subtitle")}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="mb-8 flex flex-wrap gap-3">
               <Link
                 to="/schedule"
-                className="group inline-flex items-center gap-2 rounded-xl bg-brand-dark px-7 py-4 font-bold text-white transition-all hover:bg-brand-primary"
+                className="group inline-flex items-center gap-2 rounded-xl bg-brand-primary px-7 py-4 font-bold text-white shadow-lifted transition-all hover:bg-brand-dark"
               >
                 {t("cta.schedule")}
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link
-                to="/services"
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-7 py-4 font-bold text-foreground transition-all hover:bg-muted"
+              <a
+                href="https://wa.me/8801700000000"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-7 py-4 font-bold text-foreground transition-all hover:border-brand-primary/30 hover:bg-muted"
               >
-                {t("cta.learnMore")}
-              </Link>
+                Chat on WhatsApp
+              </a>
             </div>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+              {[
+                t("hero.trust.pickup"),
+                t("hero.trust.data"),
+                t("hero.trust.report"),
+              ].map((line) => (
+                <li key={line} className="inline-flex items-center gap-2">
+                  <CheckCircle2 className="size-4 text-brand-primary" />
+                  {line}
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="relative aspect-square w-full overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-primary via-brand-primary/90 to-brand-dark p-10 text-white shadow-2xl shadow-brand-primary/20">
-              <div className="absolute inset-0 opacity-10">
-                <svg viewBox="0 0 400 400" className="size-full">
-                  <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5" />
-                    </pattern>
-                  </defs>
-                  <rect width="400" height="400" fill="url(#grid)" />
-                </svg>
-              </div>
-
-              <div className="relative flex h-full flex-col justify-between">
-                <div className="flex items-start justify-between">
-                  <div className="grid size-14 place-items-center rounded-2xl bg-white/10 backdrop-blur">
-                    <Recycle className="size-7" />
-                  </div>
-                  <div className="rounded-full bg-brand-accent px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-dark">
-                    Live
-                  </div>
-                </div>
-
-                <div className="space-y-6">
-                  <div className="grid grid-cols-3 gap-3">
-                    {[Cpu, Factory, Shield].map((Icon, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 + i * 0.1 }}
-                        className="aspect-square rounded-xl bg-white/10 p-3 backdrop-blur"
-                      >
-                        <Icon className="size-full opacity-80" strokeWidth={1.5} />
-                      </motion.div>
-                    ))}
-                  </div>
-                  <div>
-                    <div className="font-display text-4xl font-bold">98%</div>
-                    <div className="text-sm text-white/70">Material recovery rate</div>
-                  </div>
-                </div>
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-lifted">
+              <img
+                src={heroPickup}
+                alt="EcoCycle technician receiving old laptops from a family in Dhaka"
+                width={1024}
+                height={1280}
+                className="size-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand-dark/45 via-transparent to-transparent" />
+              <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-brand-primary backdrop-blur">
+                <span className="size-2 animate-pulse rounded-full bg-brand-clay" />
+                Dhaka · this afternoon
               </div>
             </div>
 
@@ -186,12 +187,12 @@ function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="absolute -bottom-6 -left-6 rounded-2xl border border-border bg-card p-5 shadow-xl"
+              className="absolute -bottom-6 -left-4 max-w-[15rem] rounded-2xl border border-border bg-card p-5 shadow-lifted sm:-left-8"
             >
               <div className="font-display text-3xl font-bold text-brand-primary">
-                <StatCounter value={45000} suffix="+" />
+                <StatCounter value={452000} suffix="" />
               </div>
-              <div className="text-sm font-medium text-muted-foreground">
+              <div className="mt-1 text-xs font-medium text-muted-foreground">
                 {t("hero.stat.label")}
               </div>
             </motion.div>
@@ -200,18 +201,191 @@ function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="absolute -top-4 -right-4 hidden rounded-2xl border border-border bg-card p-4 shadow-xl md:flex md:items-center md:gap-3"
+              className="absolute -right-3 top-8 hidden rounded-2xl border border-border bg-card p-4 shadow-soft md:flex md:items-center md:gap-3"
             >
-              <div className="grid size-10 place-items-center rounded-full bg-brand-accent/30">
-                <Leaf className="size-5 text-brand-primary" />
+              <div className="grid size-10 place-items-center rounded-full bg-brand-citron text-brand-primary">
+                <Leaf className="size-5" />
               </div>
-              <div className="text-sm">
+              <div className="text-sm leading-tight">
                 <div className="font-bold">Carbon neutral</div>
                 <div className="text-xs text-muted-foreground">certified 2024</div>
               </div>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.85 }}
+              className="absolute -bottom-8 right-2 hidden rounded-2xl border border-border bg-brand-dark p-4 text-white shadow-lifted sm:block"
+            >
+              <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-brand-citron">
+                <Cpu className="size-3.5" /> 98%
+              </div>
+              <div className="mt-1 text-xs text-white/80">material recovery rate</div>
+            </motion.div>
           </motion.div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function AcceptedItems() {
+  const { t } = useT();
+  const items = [
+    { icon: Laptop, label: "Laptops" },
+    { icon: Smartphone, label: "Phones & tablets" },
+    { icon: Tv, label: "TVs & monitors" },
+    { icon: Refrigerator, label: "Fridges & ACs" },
+    { icon: BatteryCharging, label: "Batteries" },
+    { icon: Cable, label: "Cables & chargers" },
+    { icon: Printer, label: "Printers" },
+    { icon: Monitor, label: "Desktops & servers" },
+  ];
+  return (
+    <section className="px-6 py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.4fr]">
+          <SectionHeading
+            eyebrow="What we accept"
+            title={t("accepted.heading")}
+            subtitle={t("accepted.sub")}
+          >
+            <a
+              href="https://wa.me/8801700000000"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand-primary underline decoration-brand-citron decoration-4 underline-offset-4"
+            >
+              {t("accepted.cta")} <ArrowRight className="size-4" />
+            </a>
+          </SectionHeading>
+          <div>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {items.map((it, i) => (
+                <motion.div
+                  key={it.label}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.04 }}
+                  className="group flex flex-col items-start gap-3 rounded-2xl border border-border bg-card p-4 transition-colors hover:border-brand-primary/40 hover:bg-brand-citron/30"
+                >
+                  <span className="grid size-10 place-items-center rounded-xl bg-brand-citron text-brand-primary transition-colors group-hover:bg-brand-primary group-hover:text-white">
+                    <it.icon className="size-5" />
+                  </span>
+                  <span className="text-sm font-semibold">{it.label}</span>
+                </motion.div>
+              ))}
+            </div>
+            <div className="mt-6 overflow-hidden rounded-2xl">
+              <img
+                src={itemsFlatlay}
+                alt="A flat-lay of common household electronics we accept for recycling"
+                loading="lazy"
+                width={1600}
+                height={1000}
+                className="h-48 w-full object-cover md:h-60"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Partners() {
+  const partners = [
+    "BRAC",
+    "Grameenphone",
+    "BSRM",
+    "City Bank",
+    "bKash",
+    "Pathao",
+    "Robi",
+    "IDLC",
+  ];
+  return (
+    <section className="border-y border-border/60 bg-card px-6 py-10">
+      <div className="mx-auto max-w-7xl">
+        <p className="mb-6 text-center text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+          Trusted by teams across Bangladesh
+        </p>
+        <div className="grid grid-cols-2 gap-x-8 gap-y-4 sm:grid-cols-4 lg:grid-cols-8">
+          {partners.map((p) => (
+            <div
+              key={p}
+              className="text-center font-display text-base font-bold tracking-tight text-muted-foreground/70 transition-colors hover:text-brand-primary"
+            >
+              {p}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FacilityFeature() {
+  return (
+    <section className="px-6 py-24">
+      <div className="mx-auto grid max-w-7xl items-stretch gap-6 lg:grid-cols-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="overflow-hidden rounded-3xl"
+        >
+          <img
+            src={facilityImg}
+            alt="Workers in our Savar recycling facility sorting components into colour-coded bins"
+            loading="lazy"
+            width={1600}
+            height={900}
+            className="size-full object-cover"
+          />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="relative flex flex-col justify-between overflow-hidden rounded-3xl p-10 text-white surface-dark"
+        >
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-citron">
+              Inside our facility
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-display md:text-4xl">
+              Every gram is sorted by hand, then by machine.
+            </h2>
+            <p className="mt-4 max-w-md text-white/80">
+              Our Savar facility processes around 12 tonnes of electronics every week. Each
+              device is logged, wiped, and dismantled into copper, aluminium, steel, glass
+              and plastic streams — then sold to licensed downstream processors. Nothing
+              gets buried.
+            </p>
+          </div>
+          <div className="mt-8 grid grid-cols-3 gap-4 border-t border-white/15 pt-6">
+            {[
+              { v: "12t", l: "processed weekly" },
+              { v: "98%", l: "recovery rate" },
+              { v: "0%", l: "to landfill" },
+            ].map((s) => (
+              <div key={s.l}>
+                <div className="font-display text-2xl font-bold text-brand-citron">{s.v}</div>
+                <div className="text-xs text-white/70">{s.l}</div>
+              </div>
+            ))}
+          </div>
+          <img
+            src={circuitMoss}
+            alt=""
+            aria-hidden
+            className="pointer-events-none absolute -right-12 -top-12 size-44 rounded-2xl object-cover opacity-30"
+          />
+        </motion.div>
       </div>
     </section>
   );
@@ -488,6 +662,10 @@ function FaqSection() {
     { q: t("faq.q2"), a: t("faq.a2") },
     { q: t("faq.q3"), a: t("faq.a3") },
     { q: t("faq.q4"), a: t("faq.a4") },
+    { q: t("faq.q5"), a: t("faq.a5") },
+    { q: t("faq.q6"), a: t("faq.a6") },
+    { q: t("faq.q7"), a: t("faq.a7") },
+    { q: t("faq.q8"), a: t("faq.a8") },
   ];
   return (
     <section className="px-6 py-24">
@@ -512,22 +690,30 @@ function CtaBanner() {
   const { t } = useT();
   return (
     <section className="mx-auto max-w-7xl px-6 pb-24">
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-brand-primary px-8 py-20 text-center text-white md:px-16">
-        <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-white/5" />
-        <div className="pointer-events-none absolute -bottom-20 -left-20 size-80 rounded-full bg-brand-accent/15" />
-        <div className="relative mx-auto max-w-2xl">
-          <h2 className="font-display text-4xl font-bold md:text-5xl">{t("cta.banner.heading")}</h2>
-          <p className="mt-6 text-lg text-white/80">{t("cta.banner.sub")}</p>
+      <div className="relative overflow-hidden rounded-[2.5rem] surface-dark px-8 py-20 md:px-16">
+        <img
+          src={facilityImg}
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute inset-0 size-full object-cover opacity-15"
+        />
+        <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-brand-citron/15" />
+        <div className="pointer-events-none absolute -bottom-20 -left-20 size-80 rounded-full bg-brand-sky/15" />
+        <div className="relative mx-auto max-w-2xl text-center">
+          <h2 className="font-display text-4xl font-bold tracking-display md:text-5xl">
+            {t("cta.banner.heading")}
+          </h2>
+          <p className="mt-6 text-lg text-white/85">{t("cta.banner.sub")}</p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
               to="/schedule"
-              className="rounded-full bg-brand-accent px-8 py-4 font-bold text-brand-dark transition-all hover:scale-105 hover:bg-white"
+              className="rounded-full bg-brand-citron px-8 py-4 font-bold text-brand-dark transition-all hover:scale-105 hover:bg-white"
             >
               {t("cta.scheduleNow")}
             </Link>
             <Link
               to="/contact"
-              className="rounded-full border border-white/20 px-8 py-4 font-bold text-white transition-all hover:bg-white/10"
+              className="rounded-full border border-white/25 px-8 py-4 font-bold text-white transition-all hover:bg-white/10"
             >
               {t("cta.contactSales")}
             </Link>

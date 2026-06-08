@@ -23,12 +23,13 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
+      <div className="h-[2px] w-full bg-gradient-to-r from-brand-primary via-brand-accent to-brand-sky" />
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-2 group" aria-label="EcoCycle Bangladesh home">
-          <span className="grid size-9 place-items-center rounded-lg bg-brand-primary text-white shadow-sm shadow-brand-primary/30 transition-transform group-hover:rotate-12">
+        <Link to="/" className="flex items-center gap-2" aria-label="EcoCycle Bangladesh home">
+          <span className="grid size-9 place-items-center rounded-lg bg-brand-primary text-white shadow-soft">
             <Recycle className="size-5" aria-hidden />
           </span>
-          <span className="font-display text-xl font-bold tracking-tight text-brand-primary">
+          <span className="font-display text-xl font-bold tracking-tight text-brand-primary transition-colors hover:text-brand-dark">
             EcoCycle
           </span>
         </Link>
