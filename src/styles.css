@@ -35,6 +35,11 @@
   --color-brand-primary: var(--brand-primary);
   --color-brand-accent: var(--brand-accent);
   --color-brand-dark: var(--brand-dark);
+  --color-brand-moss: var(--brand-moss);
+  --color-brand-citron: var(--brand-citron);
+  --color-brand-clay: var(--brand-clay);
+  --color-brand-sky: var(--brand-sky);
+  --color-brand-sand: var(--brand-sand);
 
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -47,9 +52,17 @@
   --brand-primary: #065f46;
   --brand-accent: #a3e635;
   --brand-dark: #0f172a;
+  --brand-moss: #3f6f4f;
+  --brand-citron: #d9f99d;
+  --brand-clay: #c2655a;
+  --brand-sky: #0ea5e9;
+  --brand-sand: #f5efe6;
+
+  --shadow-soft: 0 6px 20px -8px color-mix(in oklab, #0f172a 18%, transparent);
+  --shadow-lifted: 0 24px 60px -24px color-mix(in oklab, #065f46 35%, transparent);
 
   /* Semantic (light) */
-  --background: #f8fafc;
+  --background: #faf8f3;
   --foreground: #0f172a;
   --card: #ffffff;
   --card-foreground: #0f172a;
