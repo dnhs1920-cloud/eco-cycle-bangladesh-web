@@ -2,19 +2,43 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
+  BatteryCharging,
+  Cable,
   Calendar,
   CheckCircle2,
   Cpu,
   Factory,
+  Laptop,
   Leaf,
+  MapPin,
+  Monitor,
   PackageCheck,
+  Printer,
   Recycle,
+  Refrigerator,
   Shield,
   ShieldCheck,
+  Smartphone,
   Sparkles,
+  Tv,
   Truck,
   Wallet,
 } from "lucide-react";
+import { PageShell } from "@/components/page-shell";
+import { SectionHeading } from "@/components/section-heading";
+import { StatCounter } from "@/components/stat-counter";
+import { Newsletter } from "@/components/newsletter";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { useT } from "@/lib/i18n";
+import heroPickup from "@/assets/hero-pickup.jpg";
+import circuitMoss from "@/assets/circuit-moss.jpg";
+import facilityImg from "@/assets/facility.jpg";
+import itemsFlatlay from "@/assets/items-flatlay.jpg";
 import { PageShell } from "@/components/page-shell";
 import { SectionHeading } from "@/components/section-heading";
 import { StatCounter } from "@/components/stat-counter";
