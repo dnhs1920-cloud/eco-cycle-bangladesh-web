@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BASE_URL is empty until a project URL is set; entries below are relative paths. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc></url>
+  <url><loc>/schedule</loc></url>
+  <url><loc>/services</loc></url>
+  <url><loc>/impact</loc></url>
+  <url><loc>/corporate</loc></url>
+  <url><loc>/about</loc></url>
+  <url><loc>/blog</loc></url>
+  <url><loc>/contact</loc></url>
+</urlset>
