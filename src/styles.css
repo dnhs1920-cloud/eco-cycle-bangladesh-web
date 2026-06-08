@@ -106,6 +106,25 @@
 
   --brand-primary: #34d399;
   --brand-dark: #f1f5f9;
+  --brand-sand: #1a2436;
+  --brand-citron: #2a3a1f;
+}
+
+@utility surface-tinted {
+  background-color: var(--brand-sand);
+}
+@utility surface-dark {
+  background: linear-gradient(140deg, #064e3b 0%, #0f172a 100%);
+  color: #f1f5f9;
+}
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility shadow-lifted {
+  box-shadow: var(--shadow-lifted);
+}
+@utility tracking-display {
+  letter-spacing: -0.03em;
 }
 
 @layer base {
