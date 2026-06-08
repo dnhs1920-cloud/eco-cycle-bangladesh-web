@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, ClientOnly } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   Bar,
@@ -103,48 +103,56 @@ function ImpactPage() {
           <div className="rounded-3xl border border-border bg-card p-8">
             <h2 className="font-display text-xl font-bold">{t("impact.chart.title")}</h2>
             <div className="mt-6 h-72">
-              <ResponsiveContainer>
-                <BarChart data={materialsData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.4} />
-                  <XAxis dataKey="name" stroke="currentColor" fontSize={12} />
-                  <YAxis stroke="currentColor" fontSize={12} />
-                  <Tooltip
-                    contentStyle={{
-                      background: "var(--card)",
-                      border: "1px solid var(--border)",
-                      borderRadius: 12,
-                    }}
-                  />
-                  <Bar dataKey="value" fill="var(--brand-primary)" radius={[8, 8, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
+              <ClientOnly fallback={<div className="h-full w-full animate-pulse rounded-xl bg-muted/40" />}>
+                {() => (
+                  <ResponsiveContainer>
+                    <BarChart data={materialsData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.4} />
+                      <XAxis dataKey="name" stroke="currentColor" fontSize={12} />
+                      <YAxis stroke="currentColor" fontSize={12} />
+                      <Tooltip
+                        contentStyle={{
+                          background: "var(--card)",
+                          border: "1px solid var(--border)",
+                          borderRadius: 12,
+                        }}
+                      />
+                      <Bar dataKey="value" fill="var(--brand-primary)" radius={[8, 8, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                )}
+              </ClientOnly>
             </div>
           </div>
 
           <div className="rounded-3xl border border-border bg-card p-8">
             <h2 className="font-display text-xl font-bold">CO₂ avoided over time (tonnes)</h2>
             <div className="mt-6 h-72">
-              <ResponsiveContainer>
-                <LineChart data={co2Trend}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.4} />
-                  <XAxis dataKey="year" stroke="currentColor" fontSize={12} />
-                  <YAxis stroke="currentColor" fontSize={12} />
-                  <Tooltip
-                    contentStyle={{
-                      background: "var(--card)",
-                      border: "1px solid var(--border)",
-                      borderRadius: 12,
-                    }}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="t"
-                    stroke="var(--brand-primary)"
-                    strokeWidth={3}
-                    dot={{ r: 5, fill: "var(--brand-primary)" }}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
+              <ClientOnly fallback={<div className="h-full w-full animate-pulse rounded-xl bg-muted/40" />}>
+                {() => (
+                  <ResponsiveContainer>
+                    <LineChart data={co2Trend}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.4} />
+                      <XAxis dataKey="year" stroke="currentColor" fontSize={12} />
+                      <YAxis stroke="currentColor" fontSize={12} />
+                      <Tooltip
+                        contentStyle={{
+                          background: "var(--card)",
+                          border: "1px solid var(--border)",
+                          borderRadius: 12,
+                        }}
+                      />
+                      <Line
+                        type="monotone"
+                        dataKey="t"
+                        stroke="var(--brand-primary)"
+                        strokeWidth={3}
+                        dot={{ r: 5, fill: "var(--brand-primary)" }}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                )}
+              </ClientOnly>
             </div>
           </div>
         </div>
