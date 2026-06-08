@@ -63,13 +63,15 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const { t } = useT();
   return (
     <PageShell>
       <Hero />
+      <Partners />
       <Stats />
+      <AcceptedItems />
       <HowItWorks />
       <Services />
+      <FacilityFeature />
       <Benefits />
       <Testimonials />
       <FaqSection />
@@ -81,7 +83,6 @@ function Index() {
       <CtaBanner />
     </PageShell>
   );
-  void t;
 }
 
 function Hero() {
