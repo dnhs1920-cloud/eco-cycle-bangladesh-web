@@ -104,7 +104,7 @@ function ImpactPage() {
             <h2 className="font-display text-xl font-bold">{t("impact.chart.title")}</h2>
             <div className="mt-6 h-72">
               <ClientOnly fallback={<div className="h-full w-full animate-pulse rounded-xl bg-muted/40" />}>
-                {() => (
+                (
                   <ResponsiveContainer>
                     <BarChart data={materialsData}>
                       <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.4} />
@@ -120,7 +120,7 @@ function ImpactPage() {
                       <Bar dataKey="value" fill="var(--brand-primary)" radius={[8, 8, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
-                )}
+              )
               </ClientOnly>
             </div>
           </div>
@@ -129,7 +129,7 @@ function ImpactPage() {
             <h2 className="font-display text-xl font-bold">CO₂ avoided over time (tonnes)</h2>
             <div className="mt-6 h-72">
               <ClientOnly fallback={<div className="h-full w-full animate-pulse rounded-xl bg-muted/40" />}>
-                {() => (
+                (
                   <ResponsiveContainer>
                     <LineChart data={co2Trend}>
                       <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.4} />
@@ -151,7 +151,7 @@ function ImpactPage() {
                       />
                     </LineChart>
                   </ResponsiveContainer>
-                )}
+              )
               </ClientOnly>
             </div>
           </div>
