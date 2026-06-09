@@ -110,8 +110,9 @@ const en: Dict = {
   "cta.banner.sub":
     "Book a free pickup in under two minutes. We'll handle the heavy lifting, the data wiping and the paperwork — you just open the door.",
 
-  "footer.tagline": "Bangladesh's circular electronics partner.",
+  "footer.tagline": "Bangladesh's circular electronics network. We pick it up, recover the metals, and put the value back into the country.",
   "footer.rights": "All rights reserved.",
+
   "footer.product": "Product",
   "footer.company": "Company",
   "footer.legal": "Legal",
