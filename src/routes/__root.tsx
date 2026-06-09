@@ -79,23 +79,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EcoCycle Bangladesh — E-Waste Collection & Recycling" },
+      { title: "E-Recycle.com — Bangladesh's Circular Electronics Network" },
       {
         name: "description",
         content:
-          "Schedule certified e-waste pickup across Bangladesh. EcoCycle collects, refurbishes, and recycles old electronics for homes and businesses.",
+          "E-Recycle.com collects, refurbishes and recovers materials from old electronics across Bangladesh — copper, gold, palladium, rare earths and more.",
       },
-      { name: "author", content: "EcoCycle Bangladesh" },
-      { property: "og:site_name", content: "EcoCycle Bangladesh" },
+      { name: "author", content: "E-Recycle.com" },
+      { property: "og:site_name", content: "E-Recycle.com" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "EcoCycle Bangladesh — E-Waste Collection & Recycling" },
+      { property: "og:title", content: "E-Recycle.com — Bangladesh's Circular Electronics Network" },
       {
         property: "og:description",
         content:
-          "Certified e-waste pickup, refurbishment, and secure data destruction across Bangladesh.",
+          "Door-to-door e-waste pickup, certified data destruction and material recovery across Bangladesh.",
       },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#065f46" },
+      { name: "theme-color", content: "#000000" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -103,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Hind+Siliguri:wght@400;500;600;700&display=swap",
       },
     ],
     scripts: [
@@ -112,14 +112,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "EcoCycle Bangladesh",
+          name: "E-Recycle.com",
           description:
-            "Certified e-waste collection, recycling, and refurbishment across Bangladesh.",
+            "Certified e-waste collection, material recovery and refurbishment across Bangladesh.",
           areaServed: "Bangladesh",
         }),
       },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
