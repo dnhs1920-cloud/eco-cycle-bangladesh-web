@@ -18,13 +18,13 @@ import { useT } from "@/lib/i18n";
 export const Route = createFileRoute("/impact")({
   head: () => ({
     meta: [
-      { title: "Our Impact — EcoCycle Bangladesh" },
+      { title: "Our Impact — E-Recycle.com" },
       {
         name: "description",
         content:
           "See live metrics on electronics collected, devices refurbished, materials recovered, and CO₂ reduced across Bangladesh.",
       },
-      { property: "og:title", content: "Our Impact — EcoCycle Bangladesh" },
+      { property: "og:title", content: "Our Impact — E-Recycle.com" },
       {
         property: "og:description",
         content: "Measurable environmental impact from certified e-waste recycling.",

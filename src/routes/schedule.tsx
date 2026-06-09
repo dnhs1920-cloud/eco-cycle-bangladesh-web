@@ -15,13 +15,13 @@ import { Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/schedule")({
   head: () => ({
     meta: [
-      { title: "Schedule Pickup — EcoCycle Bangladesh" },
+      { title: "Schedule Pickup — E-Recycle.com" },
       {
         name: "description",
         content:
           "Book a free e-waste pickup in Dhaka, Chittagong, and across Bangladesh. Three quick steps and our team will confirm via WhatsApp.",
       },
-      { property: "og:title", content: "Schedule Pickup — EcoCycle Bangladesh" },
+      { property: "og:title", content: "Schedule Pickup — E-Recycle.com" },
       {
         property: "og:description",
         content: "Three quick steps to book a certified e-waste pickup.",
@@ -127,7 +127,7 @@ function SchedulePage() {
                 <div className="mt-8 flex flex-wrap justify-center gap-3">
                   <a
                     href={`https://wa.me/8801700000000?text=${encodeURIComponent(
-                      `Hi EcoCycle! I just booked a pickup.\nName: ${submitted.name}\nAddress: ${submitted.address}\nDevices: ${submitted.device} (${submitted.quantity})\nDate: ${submitted.date}`
+                      `Hi E-Recycle.com! I just booked a pickup.\nName: ${submitted.name}\nAddress: ${submitted.address}\nDevices: ${submitted.device} (${submitted.quantity})\nDate: ${submitted.date}`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"

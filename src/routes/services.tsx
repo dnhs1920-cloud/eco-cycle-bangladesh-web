@@ -15,13 +15,13 @@ import { useT } from "@/lib/i18n";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — EcoCycle Bangladesh" },
+      { title: "Services — E-Recycle.com" },
       {
         name: "description",
         content:
           "Residential pickups, office collections, school drives, NIST-grade data destruction, and certified refurbishment across Bangladesh.",
       },
-      { property: "og:title", content: "Services — EcoCycle Bangladesh" },
+      { property: "og:title", content: "Services — E-Recycle.com" },
       {
         property: "og:description",
         content:

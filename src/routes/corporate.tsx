@@ -14,13 +14,13 @@ import { useT } from "@/lib/i18n";
 export const Route = createFileRoute("/corporate")({
   head: () => ({
     meta: [
-      { title: "Corporate Solutions — EcoCycle Bangladesh" },
+      { title: "Corporate Solutions — E-Recycle.com" },
       {
         name: "description",
         content:
           "Enterprise e-waste management for banks, NGOs, and corporates. Secure disposal, certificates of destruction, and CSR partnerships.",
       },
-      { property: "og:title", content: "Corporate Solutions — EcoCycle Bangladesh" },
+      { property: "og:title", content: "Corporate Solutions — E-Recycle.com" },
       {
         property: "og:description",
         content:

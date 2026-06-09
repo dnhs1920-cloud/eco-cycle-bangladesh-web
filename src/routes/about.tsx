@@ -7,13 +7,13 @@ import { useT } from "@/lib/i18n";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — EcoCycle Bangladesh" },
+      { title: "About — E-Recycle.com" },
       {
         name: "description",
         content:
-          "EcoCycle is building a cleaner Bangladesh through responsible electronics recycling. Meet the team and our mission.",
+          "E-Recycle.com is building a cleaner Bangladesh through responsible electronics recycling. Meet the team and our mission.",
       },
-      { property: "og:title", content: "About — EcoCycle Bangladesh" },
+      { property: "og:title", content: "About — E-Recycle.com" },
       {
         property: "og:description",
         content: "Our mission, team, and sustainability commitment.",
@@ -85,7 +85,7 @@ function AboutPage() {
             <h2 className="font-display text-xl font-bold">Our story</h2>
           </div>
           <p className="mt-4 text-muted-foreground">
-            EcoCycle began in 2021 in a small Dhaka warehouse, when our founders watched
+            E-Recycle.com began in 2021 in a small Dhaka warehouse, when our founders watched
             shipping containers of broken electronics being dumped at the city's edge. We
             built a different path — one where every device gets a second chance, and
             every collected gram is accounted for. Today we serve 64 districts, support
