@@ -371,12 +371,15 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const stored = localStorage.getItem("ecocycle.lang") as Lang | null;
-      if (stored === "en" || stored === "bn") setLangState(stored);
+      const initial = stored === "en" || stored === "bn" ? stored : "en";
+      setLangState(initial);
+      if (typeof document !== "undefined") document.documentElement.lang = initial;
     } catch {}
   }, []);
 
   const setLang = (l: Lang) => {
     setLangState(l);
+    if (typeof document !== "undefined") document.documentElement.lang = l;
     try {
       localStorage.setItem("ecocycle.lang", l);
     } catch {}
@@ -386,6 +389,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   return <LangCtx.Provider value={{ lang, setLang, t }}>{children}</LangCtx.Provider>;
 }
+
 
 export function useT() {
   const ctx = useContext(LangCtx);
