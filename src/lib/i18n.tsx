@@ -189,7 +189,8 @@ const en: Dict = {
   "contact.success": "Message sent — we'll be in touch soon.",
   "contact.address": "Gulshan Avenue, Dhaka 1212, Bangladesh",
   "contact.phone": "+880 1700 000000",
-  "contact.email": "hello@ecocycle.bd",
+  "contact.email": "hello@e-recycle.com",
+
 };
 
 const bn: Dict = {
