@@ -4,7 +4,7 @@ const WA_NUMBER = "8801700000000"; // placeholder
 
 export function WhatsAppButton() {
   const href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
-    "Hi EcoCycle! I'd like to schedule an e-waste pickup."
+    "Hi E-Recycle.com! I'd like to schedule an e-waste pickup."
   )}`;
   return (
     <a

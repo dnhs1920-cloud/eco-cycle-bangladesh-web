@@ -13,13 +13,13 @@ import { useT } from "@/lib/i18n";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — EcoCycle Bangladesh" },
+      { title: "Contact — E-Recycle.com" },
       {
         name: "description",
         content:
-          "Get in touch with EcoCycle Bangladesh. Office in Dhaka, support by phone, email, and WhatsApp.",
+          "Get in touch with E-Recycle.com. Office in Dhaka, support by phone, email, and WhatsApp.",
       },
-      { property: "og:title", content: "Contact — EcoCycle Bangladesh" },
+      { property: "og:title", content: "Contact — E-Recycle.com" },
       {
         property: "og:description",
         content: "Reach our team by phone, email, WhatsApp, or in person in Dhaka.",
@@ -95,7 +95,7 @@ function ContactPage() {
                 <div>
                   <h3 className="font-display font-bold">Email</h3>
                   <a
-                    href="mailto:hello@ecocycle.bd"
+                    href="mailto:hello@e-recycle.com"
                     className="mt-1 block text-sm text-muted-foreground hover:text-brand-primary"
                   >
                     {t("contact.email")}

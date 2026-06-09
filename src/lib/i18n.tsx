@@ -110,8 +110,9 @@ const en: Dict = {
   "cta.banner.sub":
     "Book a free pickup in under two minutes. We'll handle the heavy lifting, the data wiping and the paperwork — you just open the door.",
 
-  "footer.tagline": "Bangladesh's circular electronics partner.",
+  "footer.tagline": "Bangladesh's circular electronics network. We pick it up, recover the metals, and put the value back into the country.",
   "footer.rights": "All rights reserved.",
+
   "footer.product": "Product",
   "footer.company": "Company",
   "footer.legal": "Legal",
@@ -163,9 +164,10 @@ const en: Dict = {
   "corp.form.submit": "Send inquiry",
   "corp.form.success": "Thank you — our enterprise team will reach out shortly.",
 
-  "about.title": "About EcoCycle",
+  "about.title": "About E-Recycle.com",
   "about.sub":
-    "We're building a cleaner Bangladesh through responsible electronics recycling.",
+    "We're a Bangladeshi team turning the country's pile of dead electronics into recovered copper, gold, palladium — and jobs.",
+
   "about.mission": "Mission",
   "about.missionBody":
     "To create a circular economy for electronics in Bangladesh — one pickup at a time.",
@@ -187,7 +189,8 @@ const en: Dict = {
   "contact.success": "Message sent — we'll be in touch soon.",
   "contact.address": "Gulshan Avenue, Dhaka 1212, Bangladesh",
   "contact.phone": "+880 1700 000000",
-  "contact.email": "hello@ecocycle.bd",
+  "contact.email": "hello@e-recycle.com",
+
 };
 
 const bn: Dict = {
@@ -368,12 +371,15 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const stored = localStorage.getItem("ecocycle.lang") as Lang | null;
-      if (stored === "en" || stored === "bn") setLangState(stored);
+      const initial = stored === "en" || stored === "bn" ? stored : "en";
+      setLangState(initial);
+      if (typeof document !== "undefined") document.documentElement.lang = initial;
     } catch {}
   }, []);
 
   const setLang = (l: Lang) => {
     setLangState(l);
+    if (typeof document !== "undefined") document.documentElement.lang = l;
     try {
       localStorage.setItem("ecocycle.lang", l);
     } catch {}
@@ -383,6 +389,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   return <LangCtx.Provider value={{ lang, setLang, t }}>{children}</LangCtx.Provider>;
 }
+
 
 export function useT() {
   const ctx = useContext(LangCtx);
