@@ -164,9 +164,10 @@ const en: Dict = {
   "corp.form.submit": "Send inquiry",
   "corp.form.success": "Thank you — our enterprise team will reach out shortly.",
 
-  "about.title": "About EcoCycle",
+  "about.title": "About E-Recycle.com",
   "about.sub":
-    "We're building a cleaner Bangladesh through responsible electronics recycling.",
+    "We're a Bangladeshi team turning the country's pile of dead electronics into recovered copper, gold, palladium — and jobs.",
+
   "about.mission": "Mission",
   "about.missionBody":
     "To create a circular economy for electronics in Bangladesh — one pickup at a time.",
