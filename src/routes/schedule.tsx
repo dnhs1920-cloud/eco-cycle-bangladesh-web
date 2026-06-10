@@ -274,14 +274,14 @@ function SchedulePage() {
                     <button
                       type="button"
                       onClick={onNext}
-                      className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-primary/90"
+                      className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-brand-primary/90"
                     >
                       {t("cta.next")} <ArrowRight className="size-4" />
                     </button>
                   ) : (
                     <button
                       type="submit"
-                      className="inline-flex items-center gap-2 rounded-full bg-brand-dark px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-primary"
+                      className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-brand-primary/90"
                     >
                       {t("cta.submit")} <ArrowRight className="size-4" />
                     </button>
