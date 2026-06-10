@@ -144,7 +144,7 @@ function SchedulePage() {
                   </button>
                   <Link
                     to="/"
-                    className="inline-flex items-center gap-2 rounded-full bg-brand-dark px-6 py-3 text-sm font-bold text-white hover:bg-brand-primary"
+                    className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-brand-primary/90"
                   >
                     Back to home
                   </Link>
