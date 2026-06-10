@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, Moon, Sun, Zap } from "lucide-react";
+import { Menu, Moon, Recycle, Sun } from "lucide-react";
 import { useState } from "react";
 import { useT } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
