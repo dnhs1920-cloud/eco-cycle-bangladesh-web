@@ -643,8 +643,3 @@ function CtaBanner() {
     </section>
   );
 }
-
-/* Keep imports referenced — silence unused warnings on optional icons */
-void GraduationCap;
-void Lightbulb;
-void Wrench;
