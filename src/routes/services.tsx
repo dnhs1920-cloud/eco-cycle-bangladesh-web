@@ -10,7 +10,6 @@ import {
   Sparkles,
 } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
-import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -19,13 +18,12 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Residential pickups, office collections, school drives, NIST-grade data destruction, and certified refurbishment across Bangladesh.",
+          "Residential buyback, office IT asset disposition, school drives, certified data destruction, and refurbishment programs.",
       },
       { property: "og:title", content: "Services — E-Recycle.com" },
       {
         property: "og:description",
-        content:
-          "Residential pickups, office collections, school drives, secure data destruction, and refurbishment.",
+        content: "From single devices to full office decommissions — paid pickups, certified data wipe, audited downstream recovery.",
       },
       { property: "og:url", content: "/services" },
     ],
@@ -37,36 +35,36 @@ export const Route = createFileRoute("/services")({
 const SERVICES = [
   {
     icon: Home,
-    title: "Residential Collection",
-    desc: "Free pickup for households with 3+ major items. We accept TVs, laptops, phones, kitchen appliances, batteries, and cables.",
-    benefits: ["Zero cost for qualifying pickups", "Same-week scheduling", "Photo confirmation of pickup"],
-    process: ["Book online or via WhatsApp", "We confirm time slot", "Doorstep pickup", "Digital receipt"],
+    title: "Residential Buyback",
+    desc: "Free doorstep pickup for households. We quote your devices, pay on the spot, and email a digital receipt.",
+    benefits: ["Instant payout on pickup", "Free for orders above $20", "Same-week scheduling"],
+    process: ["Get an instant estimate", "Confirm time slot", "On-site inspection", "Cash or bank transfer"],
   },
   {
     icon: Building2,
     title: "Office Collection",
-    desc: "Recurring or on-demand office collections for SMEs. Bring your IT equipment back into the circular loop.",
-    benefits: ["Flexible scheduling", "Bulk discounts", "ESG-ready reporting"],
-    process: ["Quick inventory call", "On-site assessment", "Scheduled pickup", "Detailed report"],
+    desc: "Recurring or one-off collection for SMEs. Turn office refreshes into measurable revenue with audit-ready paperwork.",
+    benefits: ["Volume-based pricing", "Consolidated reporting", "Flexible scheduling"],
+    process: ["Quick inventory call", "On-site assessment", "Scheduled pickup", "Detailed valuation report"],
   },
   {
     icon: GraduationCap,
-    title: "School Collection Drives",
-    desc: "We partner with schools across Bangladesh to host e-waste collection days and educational workshops for students.",
-    benefits: ["Free workshop content", "On-site collection", "Community impact report"],
-    process: ["Coordinate date", "Promote drive", "Collection day", "Refurbished devices donated back"],
+    title: "School & Community Drives",
+    desc: "We host buyback collection days and run free e-waste education workshops with proceeds donated back to the school.",
+    benefits: ["Free workshop content", "On-site collection day", "Community impact report"],
+    process: ["Coordinate date", "Promote drive", "Collection day", "Donation summary"],
   },
   {
     icon: Shield,
-    title: "Secure Data Wiping",
-    desc: "NIST 800-88 compliant data sanitization for drives that will be reused or donated. Documented and verifiable.",
-    benefits: ["Compliance-ready certificates", "Full audit trail", "Compatible with HDD, SSD, NVMe"],
-    process: ["Drive intake", "Multi-pass wipe", "Verification scan", "Certificate issued"],
+    title: "Certified Data Wiping",
+    desc: "NIST 800-88 compliant data sanitization for any drive being reused, resold, or donated. Documented and verifiable.",
+    benefits: ["Compliance-ready certificate", "Full audit trail", "HDD, SSD, NVMe supported"],
+    process: ["Drive intake", "Multi-pass wipe", "Verification scan", "Signed certificate"],
   },
   {
     icon: HardDrive,
     title: "Hard Drive Destruction",
-    desc: "Physical shredding for sensitive drives. We provide certificates of destruction and chain-of-custody documentation.",
+    desc: "Physical shredding for sensitive drives. Witness destruction, tamper-evident transport, and serial tracking.",
     benefits: ["Witness destruction available", "Tamper-evident transport", "Serial-tracked"],
     process: ["Secure intake", "Tracked transport", "On-site or facility shred", "Certificate + video"],
   },
@@ -74,28 +72,29 @@ const SERVICES = [
     icon: Sparkles,
     title: "Device Refurbishment",
     desc: "Tested, repaired, and resold or donated. We extend the working life of laptops, phones, and peripherals.",
-    benefits: ["Affordable second-life devices", "Donation programs for schools", "6-month warranty"],
+    benefits: ["6-month warranty on refurbs", "Donation programs for schools", "Quality-tested grading"],
     process: ["Diagnostic test", "Repair & clean", "Quality check", "Resold or donated"],
   },
 ];
 
 function ServicesPage() {
-  const { t } = useT();
   return (
     <PageShell>
-      <section className="px-6 py-20">
+      <section className="border-b border-border px-6 py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">
-            {t("nav.services")}
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-brand-primary">
+            // services
           </p>
-          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight md:text-6xl">
-            {t("services.page.title")}
+          <h1 className="mt-4 font-display text-4xl font-bold tracking-display md:text-6xl">
+            Our Services
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">{t("services.page.sub")}</p>
+          <p className="mt-5 text-lg text-muted-foreground">
+            From a single phone to a full office decommission — we collect it, wipe it, and pay you for it.
+          </p>
         </div>
       </section>
 
-      <section className="px-6 pb-24">
+      <section className="px-6 py-20">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
           {SERVICES.map((s, i) => (
             <motion.article
@@ -103,11 +102,11 @@ function ServicesPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
-              className="group rounded-3xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:border-brand-primary/30 hover:shadow-xl"
+              transition={{ duration: 0.4, delay: (i % 2) * 0.06 }}
+              className="group rounded-2xl border border-border bg-card p-8 transition-colors hover:border-brand-primary/40"
             >
               <div className="flex items-start gap-4">
-                <div className="grid size-12 shrink-0 place-items-center rounded-xl bg-brand-primary text-white">
+                <div className="grid size-12 shrink-0 place-items-center rounded-xl bg-brand-primary text-primary-foreground">
                   <s.icon className="size-5" />
                 </div>
                 <div className="flex-1">
@@ -118,10 +117,10 @@ function ServicesPage() {
 
               <div className="mt-6 grid gap-6 sm:grid-cols-2">
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-brand-primary">
-                    {t("services.benefits")}
+                  <h3 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-brand-primary">
+                    What you get
                   </h3>
-                  <ul className="mt-3 space-y-1.5 text-sm text-foreground/80">
+                  <ul className="mt-3 space-y-1.5 text-sm text-foreground/85">
                     {s.benefits.map((b) => (
                       <li key={b} className="flex gap-2">
                         <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-primary" />
@@ -131,10 +130,10 @@ function ServicesPage() {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-brand-primary">
-                    {t("services.process")}
+                  <h3 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-brand-primary">
+                    How it works
                   </h3>
-                  <ol className="mt-3 space-y-1.5 text-sm text-foreground/80">
+                  <ol className="mt-3 space-y-1.5 text-sm text-foreground/85">
                     {s.process.map((p, idx) => (
                       <li key={p} className="flex gap-2">
                         <span className="font-mono text-xs text-muted-foreground">0{idx + 1}</span>
@@ -147,9 +146,9 @@ function ServicesPage() {
 
               <Link
                 to="/schedule"
-                className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-primary underline decoration-brand-primary/20 underline-offset-4 hover:decoration-brand-primary"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-primary"
               >
-                {t("cta.schedule")} <ArrowRight className="size-3.5" />
+                Schedule a Free Pickup <ArrowRight className="size-3.5" />
               </Link>
             </motion.article>
           ))}
