@@ -36,22 +36,22 @@ export const Route = createFileRoute("/corporate")({
 const VALUES = [
   {
     icon: ShieldCheck,
-    title: "Secure disposal process",
-    body: "Chain-of-custody from your office to our facility, with tamper-evident transport.",
+    title: "Secure chain of custody",
+    body: "Tamper-evident transport from your office to our facility, with serial-tracked intake.",
   },
   {
     icon: FileCheck,
-    title: "Data security compliance",
-    body: "NIST 800-88 wiping and physical shredding with full documentation.",
+    title: "NIST 800-88 data wipe",
+    body: "Compliance-grade sanitization with signed certificates for every drive.",
   },
   {
     icon: Handshake,
-    title: "Certificates of destruction",
-    body: "Serial-tracked, audit-ready certificates issued for every drive and device.",
+    title: "Transparent valuations",
+    body: "Itemized valuation reports against current market rates — no surprise lowballs.",
   },
   {
     icon: Truck,
-    title: "Bulk collection",
+    title: "Multi-site logistics",
     body: "Coordinated pickups across multiple offices with consolidated reporting.",
   },
 ];
@@ -74,19 +74,19 @@ function CorporatePage() {
 
   return (
     <PageShell>
-      <section className="px-6 py-20">
+      <section className="border-b border-border px-6 py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">
-            {t("nav.corporate")}
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-brand-primary">
+            // corporate
           </p>
-          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight md:text-6xl">
+          <h1 className="mt-4 font-display text-4xl font-bold tracking-display md:text-6xl">
             {t("corp.title")}
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">{t("corp.sub")}</p>
+          <p className="mt-5 text-lg text-muted-foreground">{t("corp.sub")}</p>
         </div>
       </section>
 
-      <section className="px-6 pb-16">
+      <section className="px-6 py-16">
         <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {VALUES.map((v, i) => (
             <motion.div
@@ -94,10 +94,10 @@ function CorporatePage() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
+              transition={{ delay: i * 0.06 }}
               className="rounded-2xl border border-border bg-card p-6"
             >
-              <div className="mb-4 inline-grid size-11 place-items-center rounded-xl bg-brand-accent/30 text-brand-primary">
+              <div className="mb-4 inline-grid size-11 place-items-center rounded-lg bg-brand-primary/10 text-brand-primary">
                 <v.icon className="size-5" />
               </div>
               <h3 className="font-display font-bold">{v.title}</h3>
@@ -108,27 +108,28 @@ function CorporatePage() {
       </section>
 
       <section className="px-6 pb-24">
-        <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[1fr_1.2fr]">
-          <div className="rounded-3xl bg-brand-primary p-10 text-white">
-            <h2 className="font-display text-2xl font-bold">CSR-ready partnerships</h2>
-            <p className="mt-3 text-white/80">
-              Bundle e-waste recycling with measurable CSR outcomes — donated devices to
-              schools, community workshops, and an annual sustainability report.
+        <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[1fr_1.2fr]">
+          <div className="rounded-2xl border border-border surface-dark p-10">
+            <h2 className="font-display text-2xl font-bold text-white">Asset buyback for enterprise</h2>
+            <p className="mt-3 text-white/75">
+              Turn end-of-life IT into a line item your CFO will notice. We quote the entire
+              fleet, settle within 24 hours, and hand you the audit trail.
             </p>
-            <ul className="mt-6 space-y-3 text-sm">
+            <ul className="mt-6 space-y-3 text-sm text-white/85">
               {[
-                "Quarterly impact dashboards",
+                "Per-device serial-tracked valuations",
+                "Witness destruction available",
+                "Quarterly material recovery report",
                 "Co-branded school donation programs",
-                "Annual sustainability audit",
-                "Employee e-waste drives",
               ].map((p) => (
                 <li key={p} className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 size-4 text-brand-accent" />
+                  <CheckCircle2 className="mt-0.5 size-4 text-brand-primary" />
                   {p}
                 </li>
               ))}
             </ul>
           </div>
+
 
           <div className="rounded-3xl border border-border bg-card p-8">
             <h2 className="font-display text-2xl font-bold">{t("corp.form.title")}</h2>
