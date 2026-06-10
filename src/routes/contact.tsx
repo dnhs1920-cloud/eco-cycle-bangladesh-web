@@ -45,15 +45,15 @@ function ContactPage() {
 
   return (
     <PageShell>
-      <section className="px-6 py-20">
+      <section className="border-b border-border px-6 py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">
-            {t("nav.contact")}
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-brand-primary">
+            // contact
           </p>
-          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight md:text-6xl">
+          <h1 className="mt-4 font-display text-4xl font-bold tracking-display md:text-6xl">
             {t("contact.title")}
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">{t("contact.sub")}</p>
+          <p className="mt-5 text-lg text-muted-foreground">{t("contact.sub")}</p>
         </div>
       </section>
 
