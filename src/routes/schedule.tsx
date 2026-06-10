@@ -94,15 +94,15 @@ function SchedulePage() {
 
   return (
     <PageShell>
-      <section className="bg-card px-6 py-16">
+      <section className="border-b border-border px-6 py-16">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">
-            {t("cta.schedule")}
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-brand-primary">
+            // pickup
           </p>
-          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight md:text-5xl">
+          <h1 className="mt-4 font-display text-4xl font-bold tracking-display md:text-5xl">
             {t("schedule.title")}
           </h1>
-          <p className="mt-4 text-muted-foreground">{t("schedule.sub")}</p>
+          <p className="mt-5 text-muted-foreground">{t("schedule.sub")}</p>
         </div>
       </section>
 
@@ -144,7 +144,7 @@ function SchedulePage() {
                   </button>
                   <Link
                     to="/"
-                    className="inline-flex items-center gap-2 rounded-full bg-brand-dark px-6 py-3 text-sm font-bold text-white hover:bg-brand-primary"
+                    className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-brand-primary/90"
                   >
                     Back to home
                   </Link>
@@ -274,14 +274,14 @@ function SchedulePage() {
                     <button
                       type="button"
                       onClick={onNext}
-                      className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-primary/90"
+                      className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-brand-primary/90"
                     >
                       {t("cta.next")} <ArrowRight className="size-4" />
                     </button>
                   ) : (
                     <button
                       type="submit"
-                      className="inline-flex items-center gap-2 rounded-full bg-brand-dark px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-primary"
+                      className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-brand-primary/90"
                     >
                       {t("cta.submit")} <ArrowRight className="size-4" />
                     </button>

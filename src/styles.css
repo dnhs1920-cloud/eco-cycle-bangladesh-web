@@ -41,9 +41,8 @@
   --color-brand-ink: var(--brand-ink);
 
   --font-display: "Syne", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "DM Sans", "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --font-bangla: "Hind Siliguri", "DM Sans", system-ui, sans-serif;
 }
 
 :root {
@@ -108,9 +107,6 @@
   --brand-sand: #0a0a0a;
 }
 
-@utility font-bangla {
-  font-family: var(--font-bangla);
-}
 @utility surface-dark {
   background: #0a0a0a;
   color: #fafafa;
@@ -138,7 +134,5 @@
   html {
     scroll-behavior: smooth;
   }
-  :lang(bn) {
-    font-family: var(--font-bangla);
-  }
 }
+

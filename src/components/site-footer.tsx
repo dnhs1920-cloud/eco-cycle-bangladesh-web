@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Zap } from "lucide-react";
+import { Recycle } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
 export function SiteFooter() {
@@ -12,8 +12,8 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2">
-              <span className="grid size-8 place-items-center rounded-md bg-foreground text-background">
-                <Zap className="size-4" aria-hidden />
+              <span className="grid size-8 place-items-center rounded-md bg-brand-primary text-primary-foreground">
+                <Recycle className="size-4" aria-hidden />
               </span>
               <span className="font-display text-lg font-bold">
                 E-Recycle<span className="text-brand-primary">.com</span>
@@ -23,8 +23,9 @@ export function SiteFooter() {
               {t("footer.tagline")}
             </p>
             <p className="mt-4 font-mono text-[11px] uppercase tracking-widest text-muted-foreground/70">
-              Dhaka · Chittagong · Sylhet · Khulna · Rajshahi
+              From Trash to Treasure
             </p>
+
           </div>
 
           <div>

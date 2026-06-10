@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, Moon, Sun, Zap } from "lucide-react";
+import { Menu, Moon, Recycle, Sun } from "lucide-react";
 import { useState } from "react";
 import { useT } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
@@ -16,7 +16,7 @@ const navLinks = [
 ] as const;
 
 export function SiteHeader() {
-  const { t, lang, setLang } = useT();
+  const { t } = useT();
   const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -24,8 +24,8 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6">
         <Link to="/" className="flex items-center gap-2" aria-label="E-Recycle.com home">
-          <span className="grid size-8 place-items-center rounded-md bg-foreground text-background">
-            <Zap className="size-4" aria-hidden />
+          <span className="grid size-8 place-items-center rounded-md bg-brand-primary text-primary-foreground">
+            <Recycle className="size-4" aria-hidden />
           </span>
           <span className="font-display text-lg font-bold tracking-tight">
             E-Recycle<span className="text-brand-primary">.com</span>
@@ -48,13 +48,6 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-1.5">
           <button
-            onClick={() => setLang(lang === "en" ? "bn" : "en")}
-            className="rounded-md px-2 py-1 font-mono text-[11px] font-semibold uppercase text-foreground/60 hover:bg-muted hover:text-foreground"
-            aria-label="Toggle language"
-          >
-            {lang === "en" ? "বাং" : "EN"}
-          </button>
-          <button
             onClick={toggle}
             aria-label={t("theme.toggle")}
             className="grid size-9 place-items-center rounded-md text-foreground/65 hover:bg-muted hover:text-foreground"
@@ -63,10 +56,11 @@ export function SiteHeader() {
           </button>
           <Link
             to="/schedule"
-            className="hidden md:inline-flex rounded-md bg-foreground px-4 py-2 text-sm font-semibold text-background hover:bg-foreground/85"
+            className="hidden md:inline-flex rounded-md bg-brand-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-brand-primary/90"
           >
             {t("cta.schedule")}
           </Link>
+
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
