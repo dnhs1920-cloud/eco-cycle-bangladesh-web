@@ -9,9 +9,7 @@ import {
   Calendar,
   CheckCircle2,
   DollarSign,
-  GraduationCap,
   Laptop,
-  Lightbulb,
   Monitor,
   PackageCheck,
   Printer,
@@ -22,7 +20,6 @@ import {
   Truck,
   Tv,
   Users,
-  Wrench,
 } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
 import { SectionHeading } from "@/components/section-heading";
