@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Zap } from "lucide-react";
+import { Recycle } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
 export function SiteFooter() {
