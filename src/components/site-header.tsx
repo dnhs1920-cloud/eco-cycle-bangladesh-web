@@ -11,7 +11,7 @@ const navLinks = [
   { to: "/services", key: "nav.services" },
   { to: "/impact", key: "nav.impact" },
   { to: "/corporate", key: "nav.corporate" },
-  { to: "/about", key: "nav.about" },
+  
   { to: "/contact", key: "nav.contact" },
 ] as const;
 

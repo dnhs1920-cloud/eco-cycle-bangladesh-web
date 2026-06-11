@@ -86,16 +86,16 @@ type DeviceKey = "phone" | "laptop" | "tablet" | "desktop";
 type ConditionKey = "working" | "damaged" | "dead";
 
 const DEVICE_RANGES: Record<DeviceKey, { label: string; max: number; min: number }> = {
-  phone: { label: "Smartphone", max: 150, min: 15 },
-  laptop: { label: "Laptop", max: 250, min: 25 },
-  tablet: { label: "Tablet", max: 100, min: 10 },
-  desktop: { label: "Desktop / Tower", max: 180, min: 20 },
+  phone: { label: "Smartphone", max: 50, min: 3 },
+  laptop: { label: "Laptop", max: 90, min: 8 },
+  tablet: { label: "Tablet", max: 40, min: 4 },
+  desktop: { label: "Desktop / Tower", max: 60, min: 6 },
 };
 
 const CONDITION_MULTIPLIER: Record<ConditionKey, { label: string; lo: number; hi: number }> = {
   working: { label: "Working", lo: 0.6, hi: 1.0 },
-  damaged: { label: "Damaged but powers on", lo: 0.3, hi: 0.6 },
-  dead: { label: "Dead / for parts", lo: 0.1, hi: 0.3 },
+  damaged: { label: "Damaged but powers on", lo: 0.3, hi: 0.55 },
+  dead: { label: "Dead / for parts", lo: 0.08, hi: 0.2 },
 };
 
 function Hero() {
@@ -116,13 +116,12 @@ function Hero() {
               From trash to treasure
             </div>
             <h1 className="font-display text-[2.75rem] font-bold leading-[1.02] tracking-display sm:text-6xl lg:text-7xl">
-              Turn old tech into{" "}
-              <span className="text-brand-primary">cash.</span>
+              Old gadgets?{" "}
+              <span className="text-brand-primary">We'll buy them.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              That dead phone, dusty laptop, or tangled cable pile? It's worth real money.
-              We pay fair market rates, pick up from your door for free, and wipe your data
-              the right way.
+              Got a drawer full of dead phones and dusty laptops? We'll come pick them up,
+              wipe your data, and pay you cash. No fees, no hassle.
             </p>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
               {[
@@ -351,14 +350,14 @@ function AcceptedItems() {
 /* ---------------- RATE CARD (replaces tiered pricing) ---------------- */
 
 const RATES = [
-  { icon: Laptop, name: "Laptops", payout: "Up to $250", note: "MacBooks, ultrabooks, gaming rigs" },
-  { icon: Smartphone, name: "Smartphones", payout: "Up to $150", note: "iPhone, Samsung flagships, Pixel" },
-  { icon: Tablet, name: "Tablets", payout: "Up to $100", note: "iPad, Galaxy Tab, Surface" },
-  { icon: Monitor, name: "Desktops", payout: "Up to $180", note: "Towers, all-in-ones, workstations" },
-  { icon: Tv, name: "TVs & Monitors", payout: "Up to $80", note: "LED, OLED, gaming monitors" },
-  { icon: Printer, name: "Printers & Peripherals", payout: "Up to $40", note: "Inkjet, laser, all-in-one" },
-  { icon: BatteryCharging, name: "Batteries (bulk)", payout: "$2–$8 / kg", note: "Li-ion, lead acid, NiMH" },
-  { icon: Cable, name: "Cables & Chargers (kg)", payout: "$3–$10 / kg", note: "Copper-rich cabling" },
+  { icon: Laptop, name: "Laptops", payout: "Up to $90", note: "MacBooks, ultrabooks, gaming rigs" },
+  { icon: Smartphone, name: "Smartphones", payout: "Up to $50", note: "iPhone, Samsung flagships, Pixel" },
+  { icon: Tablet, name: "Tablets", payout: "Up to $40", note: "iPad, Galaxy Tab, Surface" },
+  { icon: Monitor, name: "Desktops", payout: "Up to $60", note: "Towers, all-in-ones, workstations" },
+  { icon: Tv, name: "TVs & Monitors", payout: "Up to $30", note: "LED, OLED, gaming monitors" },
+  { icon: Printer, name: "Printers & Peripherals", payout: "Up to $15", note: "Inkjet, laser, all-in-one" },
+  { icon: BatteryCharging, name: "Batteries (bulk)", payout: "$1–$4 / kg", note: "Li-ion, lead acid, NiMH" },
+  { icon: Cable, name: "Cables & Chargers (kg)", payout: "$2–$6 / kg", note: "Copper-rich cabling" },
 ];
 
 function RateCard() {
@@ -508,49 +507,43 @@ function WhyTrust() {
   );
 }
 
-/* ---------------- TESTIMONIALS ---------------- */
+/* ---------------- CREDITS ---------------- */
 
-const TESTIMONIALS = [
-  {
-    quote: "Sold a 4-year-old MacBook I assumed was worthless. They paid $180 on the spot and emailed the wipe certificate the next day.",
-    name: "Tasnim Rahman",
-    role: "Designer",
-  },
-  {
-    quote: "Cleared out our office storeroom — 12 old laptops, a stack of monitors, and three printers. Got a fair quote and a single tax receipt.",
-    name: "Arif Hossain",
-    role: "Operations Lead",
-  },
-  {
-    quote: "Easiest way I've ever recycled anything. The estimator on the homepage was spot-on with what I actually got paid.",
-    name: "Mehnaz Karim",
-    role: "Product Manager",
-  },
+const STUDENTS = [
+  { name: "Rizwan", stream: "Science" },
+  { name: "Rohan", stream: "Humanities" },
+  { name: "Aiman", stream: "Science" },
+  { name: "Anjum", stream: "Science" },
 ];
 
 function Testimonials() {
   return (
     <section className="border-b border-border px-6 py-24">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading eyebrow="From people who tried us" title="And kept coming back." align="center" />
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
-          {TESTIMONIALS.map((tt, i) => (
-            <motion.figure
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
+        <SectionHeading
+          eyebrow="Credits"
+          title="Built by students of D.N. High School."
+          subtitle="This project was researched, designed and shaped by four students who wanted to make e-waste recycling feel as easy as ordering food."
+          align="center"
+        />
+        <div className="mx-auto mt-14 grid max-w-4xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {STUDENTS.map((s, i) => (
+            <motion.div
+              key={s.name}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.07 }}
-              className="flex flex-col rounded-2xl border border-border bg-card p-8"
+              transition={{ delay: i * 0.06 }}
+              className="rounded-2xl border border-border bg-card p-6 text-center"
             >
-              <blockquote className="flex-1 font-display text-lg leading-relaxed">
-                "{tt.quote}"
-              </blockquote>
-              <figcaption className="mt-6 border-t border-border pt-4">
-                <div className="font-semibold">{tt.name}</div>
-                <div className="text-sm text-muted-foreground">{tt.role}</div>
-              </figcaption>
-            </motion.figure>
+              <div className="mx-auto grid size-16 place-items-center rounded-full bg-brand-primary/10 font-display text-xl font-bold text-brand-primary">
+                {s.name.charAt(0)}
+              </div>
+              <h3 className="mt-4 font-display text-lg font-bold">{s.name}</h3>
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                {s.stream}
+              </p>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -575,11 +568,11 @@ const FAQ = [
   },
   {
     q: "What if my device is broken or dead?",
-    a: "Still worth money. We pay for raw materials and reusable components — even a smashed laptop has $20–$40 of recoverable parts and metals.",
+    a: "Still worth something. We pay for raw materials and reusable components — even a smashed laptop has a few dollars of recoverable parts and metals.",
   },
   {
     q: "Is the pickup actually free?",
-    a: "Yes, for any pickup with a confirmed quote above $20. No call-out fees, no surprises.",
+    a: "Yes, for any pickup with a confirmed quote above $10. No call-out fees, no surprises.",
   },
   {
     q: "Where does my old device end up?",
