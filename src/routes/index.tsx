@@ -86,16 +86,16 @@ type DeviceKey = "phone" | "laptop" | "tablet" | "desktop";
 type ConditionKey = "working" | "damaged" | "dead";
 
 const DEVICE_RANGES: Record<DeviceKey, { label: string; max: number; min: number }> = {
-  phone: { label: "Smartphone", max: 150, min: 15 },
-  laptop: { label: "Laptop", max: 250, min: 25 },
-  tablet: { label: "Tablet", max: 100, min: 10 },
-  desktop: { label: "Desktop / Tower", max: 180, min: 20 },
+  phone: { label: "Smartphone", max: 50, min: 3 },
+  laptop: { label: "Laptop", max: 90, min: 8 },
+  tablet: { label: "Tablet", max: 40, min: 4 },
+  desktop: { label: "Desktop / Tower", max: 60, min: 6 },
 };
 
 const CONDITION_MULTIPLIER: Record<ConditionKey, { label: string; lo: number; hi: number }> = {
   working: { label: "Working", lo: 0.6, hi: 1.0 },
-  damaged: { label: "Damaged but powers on", lo: 0.3, hi: 0.6 },
-  dead: { label: "Dead / for parts", lo: 0.1, hi: 0.3 },
+  damaged: { label: "Damaged but powers on", lo: 0.3, hi: 0.55 },
+  dead: { label: "Dead / for parts", lo: 0.08, hi: 0.2 },
 };
 
 function Hero() {
