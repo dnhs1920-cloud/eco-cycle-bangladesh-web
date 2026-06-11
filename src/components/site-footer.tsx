@@ -45,7 +45,7 @@ export function SiteFooter() {
               {t("footer.company")}
             </h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/about" className="hover:text-foreground">{t("nav.about")}</Link></li>
+              
               <li><Link to="/contact" className="hover:text-foreground">{t("nav.contact")}</Link></li>
               <li><a href="/#materials" className="hover:text-foreground">Material streams</a></li>
               <li><a href="/#pricing" className="hover:text-foreground">Pricing</a></li>
