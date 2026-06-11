@@ -568,11 +568,11 @@ const FAQ = [
   },
   {
     q: "What if my device is broken or dead?",
-    a: "Still worth money. We pay for raw materials and reusable components — even a smashed laptop has $20–$40 of recoverable parts and metals.",
+    a: "Still worth something. We pay for raw materials and reusable components — even a smashed laptop has a few dollars of recoverable parts and metals.",
   },
   {
     q: "Is the pickup actually free?",
-    a: "Yes, for any pickup with a confirmed quote above $20. No call-out fees, no surprises.",
+    a: "Yes, for any pickup with a confirmed quote above $10. No call-out fees, no surprises.",
   },
   {
     q: "Where does my old device end up?",
