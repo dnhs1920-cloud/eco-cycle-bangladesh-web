@@ -96,6 +96,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#000000" },
+      { name: "twitter:title", content: "E-Recycle.com — Bangladesh's Circular Electronics Network" },
+      { name: "description", content: "EcoCycle Bangladesh facilitates convenient e-waste collection and recycling services." },
+      { property: "og:description", content: "EcoCycle Bangladesh facilitates convenient e-waste collection and recycling services." },
+      { name: "twitter:description", content: "EcoCycle Bangladesh facilitates convenient e-waste collection and recycling services." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/312122f9-1bff-46dd-b04e-96cd37357aec/id-preview-9f3c40f0--158c8849-406e-4892-8e05-5b5104220807.lovable.app-1781155526852.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/312122f9-1bff-46dd-b04e-96cd37357aec/id-preview-9f3c40f0--158c8849-406e-4892-8e05-5b5104220807.lovable.app-1781155526852.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
