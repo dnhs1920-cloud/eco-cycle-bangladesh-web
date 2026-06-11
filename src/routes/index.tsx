@@ -116,8 +116,8 @@ function Hero() {
               From trash to treasure
             </div>
             <h1 className="font-display text-[2.75rem] font-bold leading-[1.02] tracking-display sm:text-6xl lg:text-7xl">
-              Old gadgets?{" "}
-              <span className="text-brand-primary">We'll buy them.</span>
+              Turn tech trash{" "}
+              <span className="text-brand-primary">into cash.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
               Got a drawer full of dead phones and dusty laptops? We'll come pick them up,
