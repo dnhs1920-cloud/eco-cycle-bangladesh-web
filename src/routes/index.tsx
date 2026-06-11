@@ -350,14 +350,14 @@ function AcceptedItems() {
 /* ---------------- RATE CARD (replaces tiered pricing) ---------------- */
 
 const RATES = [
-  { icon: Laptop, name: "Laptops", payout: "Up to $250", note: "MacBooks, ultrabooks, gaming rigs" },
-  { icon: Smartphone, name: "Smartphones", payout: "Up to $150", note: "iPhone, Samsung flagships, Pixel" },
-  { icon: Tablet, name: "Tablets", payout: "Up to $100", note: "iPad, Galaxy Tab, Surface" },
-  { icon: Monitor, name: "Desktops", payout: "Up to $180", note: "Towers, all-in-ones, workstations" },
-  { icon: Tv, name: "TVs & Monitors", payout: "Up to $80", note: "LED, OLED, gaming monitors" },
-  { icon: Printer, name: "Printers & Peripherals", payout: "Up to $40", note: "Inkjet, laser, all-in-one" },
-  { icon: BatteryCharging, name: "Batteries (bulk)", payout: "$2–$8 / kg", note: "Li-ion, lead acid, NiMH" },
-  { icon: Cable, name: "Cables & Chargers (kg)", payout: "$3–$10 / kg", note: "Copper-rich cabling" },
+  { icon: Laptop, name: "Laptops", payout: "Up to $90", note: "MacBooks, ultrabooks, gaming rigs" },
+  { icon: Smartphone, name: "Smartphones", payout: "Up to $50", note: "iPhone, Samsung flagships, Pixel" },
+  { icon: Tablet, name: "Tablets", payout: "Up to $40", note: "iPad, Galaxy Tab, Surface" },
+  { icon: Monitor, name: "Desktops", payout: "Up to $60", note: "Towers, all-in-ones, workstations" },
+  { icon: Tv, name: "TVs & Monitors", payout: "Up to $30", note: "LED, OLED, gaming monitors" },
+  { icon: Printer, name: "Printers & Peripherals", payout: "Up to $15", note: "Inkjet, laser, all-in-one" },
+  { icon: BatteryCharging, name: "Batteries (bulk)", payout: "$1–$4 / kg", note: "Li-ion, lead acid, NiMH" },
+  { icon: Cable, name: "Cables & Chargers (kg)", payout: "$2–$6 / kg", note: "Copper-rich cabling" },
 ];
 
 function RateCard() {
